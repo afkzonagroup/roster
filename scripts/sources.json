@@ -1,0 +1,55 @@
+{
+  "comment": "Official sources of the generated data in src/data. Download with `npm run sources:fetch`; every file is checked against its SHA-256 before use.",
+  "sources": [
+    {
+      "id": "its-2024-2956",
+      "title": "Commission Implementing Regulation (EU) 2024/2956 of 29 November 2024 laying down implementing technical standards for the application of Regulation (EU) 2022/2554 with regard to standard templates for the register of information (OJ L, 2024/2956, 2.12.2024), English XHTML",
+      "publisher": "Publications Office of the European Union",
+      "url": "https://publications.europa.eu/resource/cellar/504165c2-b050-11ef-acb1-01aa75ed71a1.0006.03/DOC_1",
+      "humanUrl": "https://eur-lex.europa.eu/eli/reg_impl/2024/2956/oj",
+      "file": "its-2024-2956.xhtml",
+      "sha256": "164c3d0689483bfa624a0692555135016af1fdb496f7c058c321d0cdccc83f1b",
+      "bytes": 466034
+    },
+    {
+      "id": "eba-taxonomy-4.0-errata5",
+      "title": "EBA reporting framework 4.0, taxonomy package under taxonomy architecture v2.0, errata 5 (updated 21 March 2025)",
+      "publisher": "European Banking Authority",
+      "url": "https://www.eba.europa.eu/sites/default/files/2025-03/729fe4f5-bbcc-495d-b520-8ad5cbeeead0/taxo_package_4.0_errata5.zip",
+      "humanUrl": "https://www.eba.europa.eu/risk-and-data-analysis/reporting/reporting-frameworks/reporting-framework-40",
+      "file": "taxo_package_4.0_errata5.zip",
+      "sha256": "2cf8a0fe6aadee36a5bf07403d7bd63a43cab96f98fad8251c31938e8242e2fb",
+      "bytes": 18213535
+    },
+    {
+      "id": "eba-validation-rules",
+      "title": "EBA validation rules applying to framework releases from 4.0 (latest update 12 October 2026)",
+      "publisher": "European Banking Authority",
+      "url": "https://www.eba.europa.eu/sites/default/files/2026-10/4c299b8b-c5ee-482d-b26d-454be40b129b/VR_4.4.phase1_.xlsx",
+      "humanUrl": "https://www.eba.europa.eu/risk-and-data-analysis/reporting/reporting-frameworks/validation-rules-packages",
+      "file": "VR_4.4.phase1_.xlsx",
+      "sha256": "38c190fa4c2ff81f22a5bd2ed94f744fc64e4eb9b722676e07f89669d79b1aea",
+      "bytes": 1166818
+    },
+    {
+      "id": "esas-roi-checks",
+      "title": "Overview of the technical checks, validation rules and business checks to be applied by the EBA for RoI reporting (updated 28 April 2025)",
+      "publisher": "European Supervisory Authorities (EBA)",
+      "url": "https://www.eba.europa.eu/sites/default/files/2025-04/10100a51-275f-4c98-96a1-f81342a8f57d/Overview%20of%20the%20RoI%20reporting%20technical%20checks%20and%20validation%20rules%20%28updated%2028%20April%202025%29%20%284%29.xlsx",
+      "humanUrl": "https://www.eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act/preparation-dora-application",
+      "file": "roi-technical-checks-2025-04-28.xlsx",
+      "sha256": "7e08314f17eca27a18c94b09a24f667c2046f09d57e7f1d4d20b5393ac43bd4e",
+      "bytes": 46048
+    },
+    {
+      "id": "eba-sample-instances-4.0",
+      "title": "EBA sample files for taxonomy under taxonomy architecture v2.0 (reporting framework 4.0), including the DORA xBRL-CSV sample package",
+      "publisher": "European Banking Authority",
+      "url": "https://www.eba.europa.eu/sites/default/files/2024-12/f4519b45-d6c2-4e7d-a8d4-4bee91a9c530/sample_documents.zip",
+      "humanUrl": "https://www.eba.europa.eu/risk-and-data-analysis/reporting/reporting-frameworks/reporting-framework-40",
+      "file": "sample_documents_4.0.zip",
+      "sha256": "2183cdd27898d6ed95de2962b0ae4c54b4037ccb9ff668b00cf9db15d0d8ecac",
+      "bytes": 753592
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+c0010,c0040,c0020,c0030,c0050,c0060,c0070,c0080,c0090,c0100
+F1,EXAMPLE0PAYMENTS0158,eba_TA:x222,Card payment processing,eba_BT:x28,Outage stops card payments for all customers.,2025-06-30,4,1,eba_ZZ:x793
+F2,EXAMPLE0PAYMENTS0158,eba_TA:x276,Internal document management,eba_BT:x29,,2025-06-30,72,24,eba_ZZ:x791

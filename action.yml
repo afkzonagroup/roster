@@ -1,0 +1,88 @@
+# Copyright 2026 MB AFKzona Group
+# SPDX-License-Identifier: AGPL-3.0-only
+name: Roster DORA register check
+description: Validate a DORA register of information (folder of CSV files, .xlsx or report package) and optionally build its xBRL-CSV report package. Offline.
+author: AFKzona Group
+branding:
+  icon: check-square
+  color: blue
+inputs:
+  input:
+    description: Register to check, relative to the workspace (a folder of CSV files, an .xlsx workbook, or a .zip report package).
+    required: true
+  config:
+    description: Report settings file (roster.json). Default is roster.json inside the input folder.
+    default: ''
+  reference-date:
+    description: Reference date (yyyy-mm-dd) to use instead of the one in the settings.
+    default: ''
+  fail-on:
+    description: Fail the step on "error", "warning" or "never".
+    default: 'error'
+  include-inactive:
+    description: Also run EBA validation rules that are deactivated ("true" or "false").
+    default: 'false'
+  package-dir:
+    description: When set, also write the xBRL-CSV report package into this folder.
+    default: ''
+outputs:
+  errors:
+    description: Number of errors found by this run.
+    value: ${{ steps.check.outputs.errors }}
+  warnings:
+    description: Number of warnings found by this run.
+    value: ${{ steps.check.outputs.warnings }}
+  package:
+    description: Path of the report package written by this run, if any.
+    value: ${{ steps.pack.outputs.package }}
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      with:
+        node-version: '22'
+    - name: Install Roster
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: |
+        set -euo pipefail
+        npm ci --ignore-scripts --no-audit --no-fund
+        npx tsc -p tsconfig.build.json
+    - name: Validate
+      id: check
+      shell: bash
+      # Inputs reach the script only through environment variables and are
+      # passed as separate arguments, so they cannot inject shell code. The
+      # outputs are written by Roster itself from this run's result.
+      env:
+        ROSTER_INPUT: ${{ inputs.input }}
+        ROSTER_CONFIG: ${{ inputs.config }}
+        ROSTER_REFERENCE_DATE: ${{ inputs.reference-date }}
+        ROSTER_FAIL_ON: ${{ inputs.fail-on }}
+        ROSTER_INACTIVE: ${{ inputs.include-inactive }}
+      run: |
+        set -euo pipefail
+        args=(validate --fail-on "$ROSTER_FAIL_ON" --github-output)
+        if [ -n "$ROSTER_CONFIG" ]; then args+=(--config "$ROSTER_CONFIG"); fi
+        if [ -n "$ROSTER_REFERENCE_DATE" ]; then args+=(--reference-date "$ROSTER_REFERENCE_DATE"); fi
+        if [ "$ROSTER_INACTIVE" = "true" ]; then args+=(--include-inactive); fi
+        node "$GITHUB_ACTION_PATH/dist/cli/main.js" "${args[@]}" -- "$ROSTER_INPUT"
+    - name: Build report package
+      id: pack
+      if: inputs.package-dir != ''
+      shell: bash
+      env:
+        ROSTER_INPUT: ${{ inputs.input }}
+        ROSTER_CONFIG: ${{ inputs.config }}
+        ROSTER_REFERENCE_DATE: ${{ inputs.reference-date }}
+        ROSTER_PACKAGE_DIR: ${{ inputs.package-dir }}
+      run: |
+        set -euo pipefail
+        case "$ROSTER_PACKAGE_DIR" in *$'\n'* | *$'\r'*) echo "package-dir must be a single line" >&2; exit 2 ;; esac
+        tmp="$(mktemp)"
+        args=(package --out-dir "$ROSTER_PACKAGE_DIR" --github-output)
+        if [ -n "$ROSTER_CONFIG" ]; then args+=(--config "$ROSTER_CONFIG"); fi
+        if [ -n "$ROSTER_REFERENCE_DATE" ]; then args+=(--reference-date "$ROSTER_REFERENCE_DATE"); fi
+        GITHUB_OUTPUT="$tmp" node "$GITHUB_ACTION_PATH/dist/cli/main.js" "${args[@]}" -- "$ROSTER_INPUT"
+        grep -E '^package=' "$tmp" >> "$GITHUB_OUTPUT" || true
+        rm -f "$tmp"

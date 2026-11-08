@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "afkzona-roster"
+version = "0.1.0"
+description = "Validate a DORA register of information (Regulation (EU) 2022/2554, Implementing Regulation (EU) 2024/2956) offline. Same checks and test vectors as the Roster TypeScript package."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "AGPL-3.0-only"
+license-files = ["LICENSE", "LICENSE-ADDITIONAL-TERMS.md"]
+authors = [{ name = "MB AFKzona Group" }]
+keywords = ["dora", "register of information", "regulation 2022/2554", "xbrl-csv", "eba"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/afkzonagroup/roster"
+Issues = "https://github.com/afkzonagroup/roster/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+roster = ["data/dora-4.0.json"]

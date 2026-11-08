@@ -1,0 +1,9 @@
+{
+  "lei": "EXAMPLE0PAYMENTS0158",
+  "consolidation": "IND",
+  "country": "LU",
+  "referenceDate": "2025-12-31",
+  "baseCurrency": "EUR",
+  "decimalsMonetary": -3,
+  "decimalsInteger": 0
+}

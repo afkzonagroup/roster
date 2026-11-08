@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-typecheck
+coverage
+.git
+.sources
+test
+python
+examples
+*.log

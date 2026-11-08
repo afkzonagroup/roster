@@ -1,0 +1,16 @@
+node_modules/
+dist/
+dist-typecheck/
+coverage/
+*.tsbuildinfo
+.DS_Store
+/.sources/
+/out/
+/tmp/
+python/.venv*/
+python/**/__pycache__/
+python/**/*.egg-info/
+python/build/
+python/dist/
+test/.tmp/
+test/.readme-tmp/
