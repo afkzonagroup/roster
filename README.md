@@ -249,10 +249,10 @@ commercial licence without the AGPL obligations is available; see
 
 ## Enterprise
 
-AFKzona Group offers a hosted dashboard, continuous monitoring of registers
-across group entities, SSO/SAML, roles, audit evidence packs, a legal-update
-feed for new taxonomy releases and rule changes, and SLA support. These are
-not part of this repository. Contact info@afkzonagroup.lt.
+MB AFKzona Group offers a commercial licence for organisations that cannot use
+the AGPL-3.0 terms (including white-label use without the attribution
+notice), integration into your systems, custom connectors and features, and
+support agreements. Contact info@afkzonagroup.lt.
 
 ## Contributing
 
