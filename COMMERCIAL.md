@@ -28,10 +28,8 @@ AFKzona Group offers a commercial licence that adds:
   interfaces.
 - **Warranty and indemnity options.**
 - **Priority support** with agreed response times.
-- **Enterprise features** (not part of this repository): hosted dashboard,
-  continuous monitoring of registers across group entities, SSO/SAML, roles
-  and permissions, audit evidence packs, a legal-update feed that tracks new
-  taxonomy releases and validation rule changes, and SLA-backed support.
+- **Services:** integration into your systems, custom connectors and
+  features, and support agreements, quoted per project.
 
 ## Contact
 
